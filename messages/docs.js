@@ -11,13 +11,13 @@ exports.searchDocs = function searchDocs(searched) {
     });
 };
 
-exports.createReplyFromResults = function createReplyFromResults(results) {
+exports.createReplyFromResults = function createReplyFromResults(results, searched) {
     return new Promise((resolve, reject) => {
         var reply = '';
         if (results.length == 0)
             reply = 'No results found'
         else {
-            reply = 'Here are the top ' + results.length + ' results for your search:\n';
+            reply = 'Here are the top ' + results.length + ' results for your search for "' + searched + '":\n';
             results.forEach(function (result) {
                 reply += '- [{1}]({0})\n'.replace('{0}', result.url).replace('{1}', result.title);
             });
