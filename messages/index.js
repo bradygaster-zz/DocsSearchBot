@@ -20,7 +20,7 @@ bot.dialog('/', function (session) {
         .then((results) => {
             docs.createReplyFromResults(results)
                 .then((reply) => {
-                    console.log(reply);
+                    session.send(reply);
                 });
         });
 });
