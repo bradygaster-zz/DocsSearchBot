@@ -15,11 +15,12 @@ var connector = useEmulator ? new builder.ChatConnector() : new botbuilder_azure
 var bot = new builder.UniversalBot(connector);
 
 bot.dialog('/', function (session) {
-    docs.searchDocs(session.message.text)
+    var searched = session.message.text
+    docs.searchDocs(searched)
         .then((results) => {
             docs.createReplyFromResults(results)
                 .then((reply) => {
-                    session.send(reply, session.message.text);
+                    session.send(reply, searched);
                 });
         });
 });
