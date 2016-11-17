@@ -17,7 +17,7 @@ exports.createReplyFromResults = function createReplyFromResults(results) {
         if (results.length == 0)
             reply = 'No results found'
         else {
-            reply = 'Here are the top ' + results.length + ' results for your search: ';
+            reply = 'Here are the top ' + results.length + ' results for your search:\n';
             results.forEach(function (result) {
                 reply += '- [{1}]({0})\n'.replace('{0}', result.url).replace('{1}', result.title);
             });
