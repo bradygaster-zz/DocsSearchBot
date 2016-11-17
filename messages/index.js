@@ -1,6 +1,7 @@
 "use strict";
 var builder = require("botbuilder");
 var botbuilder_azure = require("botbuilder-azure");
+var docs = require('./docs');
 
 var useEmulator = (process.env.NODE_ENV == 'development');
 
@@ -14,16 +15,23 @@ var connector = useEmulator ? new builder.ChatConnector() : new botbuilder_azure
 var bot = new builder.UniversalBot(connector);
 
 bot.dialog('/', function (session) {
-    session.send('You said ' + session.message.text);
+    //session.send('You said ' + session.message.text);
+    docs.searchDocs(session.message.text)
+        .then((results) => {
+            docs.createReplyFromResults(results)
+                .then((reply) => {
+                    console.log(reply);
+                });
+        });
 });
 
 if (useEmulator) {
     var restify = require('restify');
     var server = restify.createServer();
-    server.listen(3978, function() {
+    server.listen(3978, function () {
         console.log('test bot endpont at http://localhost:3978/api/messages');
     });
-    server.post('/api/messages', connector.listen());    
+    server.post('/api/messages', connector.listen());
 } else {
     module.exports = { default: connector.listen() }
 }
