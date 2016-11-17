@@ -19,7 +19,7 @@ exports.createReplyFromResults = function createReplyFromResults(results) {
         else {
             reply = 'Here are the top ' + results.length + ' results for your search: ';
             results.forEach(function (result) {
-                reply += '[{1}]({0})'.replace('{0}', result.url).replace('{1}', result.title);
+                reply += '- [{1}]({0})'.replace('{0}', result.url).replace('{1}', result.title);
             });
         }
         resolve(reply);
