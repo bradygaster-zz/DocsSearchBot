@@ -16,10 +16,10 @@ var bot = new builder.UniversalBot(connector);
 
 bot.dialog('/', function (session) {
     docs.searchDocs(session.message.text)
-        .then((results, searched) => {
-            docs.createReplyFromResults(results, searched)
+        .then((result) => {
+            docs.createReplyFromResults(result.results, result.searched)
                 .then((reply) => {
-                    session.send(reply, searched);
+                    session.send(reply);
                 });
         });
 });
