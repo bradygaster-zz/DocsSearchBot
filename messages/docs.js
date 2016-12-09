@@ -3,7 +3,7 @@ var request = require('request');
 exports.searchDocs = function searchDocs(searched) {
     return new Promise((resolve, reject) => {
         parm = encodeURIComponent(searched);
-        url = 'https://docs.microsoft.com/api/search?Search={0}&Locale=en-us&$top=5'.replace('{0}', parm);
+        url = process.env['DocsSearchApiUrl'].replace('{0}', parm);
         request(url, function (error, response, body) {
             if (!error && response.statusCode == 200) {
                 resolve({
