@@ -15,6 +15,9 @@ var connector = useEmulator ? new builder.ChatConnector() : new botbuilder_azure
 var bot = new builder.UniversalBot(connector);
 
 bot.dialog('/', function (session) {
+    if (session.message.text == 'help')
+        bot.beginDialog('/fre')
+        
     docs.searchDocs(session.message.text)
         .then((result) => {
             docs.createReplyFromResults(result.results, result.searched)
@@ -23,6 +26,11 @@ bot.dialog('/', function (session) {
                 });
         });
 });
+
+bot.dialog('/fre', function (session) {
+    session.send('Welcome to the docs.microsoft.com search bot. Simply type in a search term and I\'ll find you relevant links from our documentation.');
+});
+
 
 if (useEmulator) {
     var restify = require('restify');
