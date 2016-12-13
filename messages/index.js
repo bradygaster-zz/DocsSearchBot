@@ -37,7 +37,7 @@ bot.dialog('/search', function (session) {
 });
 
 bot.dialog('/fre', function (session) {
-    session.send('Welcome to the docs.microsoft.com search bot. Simply type in a search term (\'ASP.NET\', \'StringBuilder\', or \'IPrincipal\', for example), and I\'ll find you relevant links from our documentation.');
+    session.send('Welcome to the [docs.microsoft.com](http://docs.microsoft.com) search bot. Simply type in a search term (\'ASP.NET\', \'StringBuilder\', or \'IPrincipal\', for example), and I\'ll find you relevant links from our documentation.');
 });
 
 
