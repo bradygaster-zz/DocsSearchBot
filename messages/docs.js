@@ -3,7 +3,8 @@ var request = require('request');
 exports.searchDocs = function searchDocs(searched) {
     return new Promise((resolve, reject) => {
         parm = encodeURIComponent(searched);
-        url = process.env['DocsSearchApiUrl'].replace('{0}', parm);
+        url = process.env['DocsSearchApiUrl'];
+        url = url.replace('{0}', parm);
         request(url, function (error, response, body) {
             if (!error && response.statusCode == 200) {
                 resolve({
