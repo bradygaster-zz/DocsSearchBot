@@ -8,7 +8,12 @@
             "program": "${workspaceRoot}/index.js",
             "cwd": "${workspaceRoot}",
             "env": {
-                "NODE_ENV": "development"
+                "NODE_ENV": "development",
+                "MicrosoftAppId": "ca61f6b0-5fab-4ecd-99a2-74e2ba1d2291",
+                "MicrosoftAppPassword": "OgQRVpCqeFcSLzvE5BVRbnb",
+                "BotDevAppInsightKey": "2802a43a-91f8-4608-a6e4-77b1d3f9d396",
+                "APPINSIGHTS_INSTRUMENTATIONKEY": "2802a43a-91f8-4608-a6e4-77b1d3f9d396",
+                "DocsSearchApiUrl": "https://docs.microsoft.com/api/search?Search={0}&Locale=en-us&$top=5"
             }
         }
     ]
