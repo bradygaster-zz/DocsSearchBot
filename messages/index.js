@@ -16,7 +16,7 @@ var connector = useEmulator ? new builder.ChatConnector() : new botbuilder_azure
 var bot = new builder.UniversalBot(connector);
 
 bot.dialog('/', function (session) {
-    if (session.message.text == 'help') {
+    if (session.message.text == 'help' || session.message.text == 'hi') {
         session.beginDialog('/fre');
     }
     else {
