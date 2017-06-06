@@ -48,3 +48,6 @@ jspm_packages
 
 # Ignore VS Code configuration directory
 .vscode
+
+# Ignore a few Mac files
+.DS_Store
